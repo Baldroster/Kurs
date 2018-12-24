@@ -1,5 +1,7 @@
-package ExecutionCode;
+package ExecutionCode.Controllers;
 
+import ExecutionCode.BaseObjects.User;
+import ExecutionCode.Database.SqlQuery;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController {
 
@@ -29,11 +32,12 @@ public class LoginController {
 
     private  String password ="pass";
     private  String login ="log";
-
+    private User user = new User();
     @FXML
-    private void clickButtonLogin() throws IOException {
-
-        if (fieldLogin.getCharacters().toString().equals(login) && fieldPassword.getCharacters().toString().equals(password)){
+    private void clickButtonLogin() throws IOException, SQLException {
+        user.setLog(fieldLogin.getCharacters().toString());
+        user.setPass(fieldPassword.getCharacters().toString());
+        if (SqlQuery.getUsers(user) == true){
 
             Stage stage = (Stage) fieldLogin.getScene().getWindow();
             stage.close();
