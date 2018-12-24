@@ -12,16 +12,22 @@ import java.util.List;
 public class SqlQuery {
     static Database database = new Database();
     public static boolean getUsers(User query) throws SQLException {
-        database.Initialize();
-        String sql = "SELECT log, pass FROM USERS WHERE log="+query.getLog()+"pass="+query.getPass()+";";
+        database.getConnection();
+        String sql = "SELECT log, pass FROM USERS WHERE LOG = '"+query.getLog()+"' AND PASS = '"+query.getPass()+"';";
 
-        try {
+       try {
             database.stmt=database.conn.createStatement();
             ResultSet rs = database.stmt.executeQuery(sql);
+           if((query.getLog().equals(rs.getString("LOG")) && (query.getPass().equals(rs.getString("PASS"))))) {
+               return true;
+           }
+           else{
+               return false;
+           }
+       }
+       catch (JdbcSQLException e){
+           return false;
         }
-        catch (JdbcSQLException e){
-            return false;
-        }
-        return true;
+
     }
 }

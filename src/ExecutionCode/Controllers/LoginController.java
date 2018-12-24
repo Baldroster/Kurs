@@ -41,7 +41,7 @@ public class LoginController {
 
             Stage stage = (Stage) fieldLogin.getScene().getWindow();
             stage.close();
-            Parent root = FXMLLoader.load(getClass().getResource("../Xmls/Main form.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Kurs/src/Xmls/Main form.fxml"));
             stage = new Stage();
             stage.setTitle("Окно Log-in");
             stage.setScene(new Scene(root, 380, 400));
