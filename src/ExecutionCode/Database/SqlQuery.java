@@ -16,8 +16,13 @@ public class SqlQuery {
         String sql = "SELECT log, pass FROM USERS WHERE LOG = '"+query.getLog()+"' AND PASS = '"+query.getPass()+"';";
 
        try {
-            database.stmt=database.conn.createStatement();
+
             ResultSet rs = database.stmt.executeQuery(sql);
+           System.out.println(rs.getString("LOG"));
+           System.out.println(rs.getString("PASS"));
+           System.out.println(query.getLog());
+           System.out.println(query.getPass());
+
            if((query.getLog().equals(rs.getString("LOG")) && (query.getPass().equals(rs.getString("PASS"))))) {
                return true;
            }
@@ -26,6 +31,7 @@ public class SqlQuery {
            }
        }
        catch (JdbcSQLException e){
+           e.printStackTrace();
            return false;
         }
 

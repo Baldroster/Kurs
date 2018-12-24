@@ -19,16 +19,19 @@ public class Database {
     public void getConnection(){
         try {
             Class.forName(JDBC_DRIVER);
-        } catch (ClassNotFoundException e) {
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+            stmt = conn.createStatement();
+        }
+        catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (SQLException e){
             e.printStackTrace();
         }
         System.out.println("Connecting to database...");
-        try {
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
+
     public void Initialize () throws SQLException {
 
         try {
