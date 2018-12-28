@@ -49,31 +49,27 @@ public class Database {
                 stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery(query);
                 System.out.println(stmt.toString());
+                stmt = conn.createStatement();
             } catch (JdbcSQLException e) {
 
                 System.out.println("Creating table in given database...");
                 stmt = conn.createStatement();
                 String sql = "CREATE TABLE  USERS" +
-                        "(id_user INTEGER not NULL, " +
+                        "(id_user INTEGER auto_increment, " +
                         " LOG VARCHAR(255), " +
                         " PASS VARCHAR(255), " +
                         " PRIMARY KEY ( id_user ))";
                 stmt.executeUpdate(sql);
 
-                sql = "INSERT into USERS values (1, 'log', 'pass');";
-                stmt.executeUpdate(sql);
-
                 sql = "CREATE TABLE    ROOM" +
                         "(id_room INTEGER not NULL, " +
-                        " id_worker INTEGER not NULL, " +
-                        " id_guest INTEGER not NULL, " +
                         " price INTEGER(10), " +
                         " commentary_room VARCHAR(255), " +
                         " PRIMARY KEY ( id_room ))";
                 stmt.executeUpdate(sql);
 
                 sql = "CREATE TABLE   GUEST " +
-                        "(id_guest INTEGER not NULL, " +
+                        "(id_guest INTEGER auto_increment, " +
                         " id_room INTEGER not NULL, " +
                         " first VARCHAR(255), " +
                         " last VARCHAR(255), " +
@@ -86,16 +82,28 @@ public class Database {
                 stmt.executeUpdate(sql);
 
                 sql = "CREATE TABLE   WORKER" +
-                        "(id_worker INTEGER not NULL, " +
+                        "(id_worker INTEGER auto_increment, " +
                         " id_room INTEGER not NULL, " +
                         " first VARCHAR(255), " +
                         " last VARCHAR(255), " +
                         " father VARCHAR(255), " +
-                        " age_guest INTEGER, " +
+                        " age INTEGER, " +
                         " phone_guest VARCHAR(10), " +
-                        " passport_guest VARCHAR(10), " +
+                        " passport VARCHAR(10), " +
                         " salary VARCHAR(255), " +
                         " PRIMARY KEY ( id_worker ))";
+                stmt.executeUpdate(sql);
+
+                sql = "INSERT into ROOM values (0, '101', 'Test');";
+                stmt.executeUpdate(sql);
+
+                sql = "INSERT into GUEST values (0, 0, 'Test' , 'Test' , 'Test' , 'Test' , 0 , 'Test' , 'Test' , 'Test');";
+                stmt.executeUpdate(sql);
+
+                sql = "INSERT into WORKER values (0, 0, 'Test' , 'Test' , 'Test' , 'Test' , 0 , 'Test' , 'Test' , 'Test');";
+                stmt.executeUpdate(sql);
+
+                sql = "INSERT into USERS values (1, 'log', 'pass');";
                 stmt.executeUpdate(sql);
 
 
@@ -107,22 +115,15 @@ public class Database {
         } catch (Exception e) {
             //Handle errors for Class.forName
             e.printStackTrace();
-        } finally {
-            //finally block used to close resources
-            try {
-                if (stmt != null) stmt.close();
-            } catch (SQLException se2) {
-            } // nothing we can do
-            try {
-                if (conn != null) conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            } //end finally try
-        } //end try
+        }
 
     }
     public void cleanup() throws SQLException {
         // STEP 4: Clean-up environment
+        try {
+            if (stmt != null) stmt.close();
+        } catch (SQLException se2) {
+        } // nothing we can do
         stmt.close();
         conn.close();
 

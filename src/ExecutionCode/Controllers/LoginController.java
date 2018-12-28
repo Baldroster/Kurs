@@ -37,18 +37,20 @@ public class LoginController {
     private void clickButtonLogin() throws IOException, SQLException {
         user.setLog(fieldLogin.getCharacters().toString());
         user.setPass(fieldPassword.getCharacters().toString());
-        if (SqlQuery.getUsers(user) == true){
+        if (SqlQuery.getUsers(user)){
 
             Stage stage = (Stage) fieldLogin.getScene().getWindow();
             stage.close();
-            Parent root = FXMLLoader.load(getClass().getResource("Kurs/src/Xmls/Main form.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Xmls/MainForm.fxml"));
             stage = new Stage();
-            stage.setTitle("Окно Log-in");
+            stage.setTitle("Главное Окно");
             stage.setScene(new Scene(root, 380, 400));
             stage.show();
         }
         else {
-            exeptionLabel.setDisable(false);
+            fieldLogin.setText("");
+            fieldPassword.setText("");
+            exeptionLabel.setVisible(true);
 
 
         }
