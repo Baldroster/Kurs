@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ExecutionCode.Controllers.WorkerInsertController">
+   <children>
+      <Button fx:id="backButton" layoutX="33.0" layoutY="494.0" mnemonicParsing="false" onMouseClicked="#clickBackButton" prefHeight="25.0" prefWidth="74.0" text="Назад" />
+      <Button fx:id="saveButton" layoutX="315.0" layoutY="494.0" mnemonicParsing="false" onMouseClicked="#clickSaveButton" text="Сохранить" />
+      <Label alignment="CENTER" layoutX="166.0" layoutY="30.0" prefHeight="17.0" prefWidth="92.0" text="id Работника" />
+      <TextField fx:id="fieldId" disable="true" layoutX="64.0" layoutY="58.0" prefHeight="25.0" prefWidth="296.0" />
+      <Label alignment="CENTER" layoutX="176.0" layoutY="109.0" prefHeight="17.0" prefWidth="74.0" text="id Комнаты" />
+      <TextField fx:id="fieldIdRoom" layoutX="64.0" layoutY="135.0" prefHeight="25.0" prefWidth="296.0" />
+      <Label alignment="CENTER" layoutX="171.0" layoutY="191.0" prefHeight="17.0" prefWidth="83.0" text="ФИО" />
+      <TextField fx:id="fieldName" layoutX="38.0" layoutY="217.0" prefHeight="25.0" prefWidth="92.0" promptText="Фамилия" />
+      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="91.0" layoutY="391.0" prefHeight="42.0" prefWidth="247.0" text="error" textFill="RED" visible="false" />
+      <TextField fx:id="fieldSoname" layoutX="167.0" layoutY="217.0" prefHeight="25.0" prefWidth="92.0" promptText="Имя" />
+      <TextField fx:id="fieldFather" layoutX="297.0" layoutY="217.0" prefHeight="25.0" prefWidth="92.0" promptText="Отчество" />
+      <TextField fx:id="fieldAge" layoutX="38.0" layoutY="294.0" prefHeight="25.0" prefWidth="92.0" />
+      <Label alignment="CENTER" layoutX="43.0" layoutY="276.0" prefHeight="17.0" prefWidth="83.0" text="Возраст" />
+      <TextField fx:id="fieldPhone" layoutX="167.0" layoutY="294.0" prefHeight="25.0" prefWidth="92.0" />
+      <Label alignment="CENTER" layoutX="172.0" layoutY="276.0" prefHeight="17.0" prefWidth="83.0" text="Телефон" />
+      <TextField fx:id="fieldPassport" layoutX="298.0" layoutY="294.0" prefHeight="25.0" prefWidth="92.0" />
+      <Label alignment="CENTER" layoutX="303.0" layoutY="276.0" prefHeight="17.0" prefWidth="83.0" text="Паспорт" />
+      <Label alignment="CENTER" layoutX="163.0" layoutY="341.0" prefHeight="17.0" prefWidth="103.0" text="Зарплата" />
+      <TextField fx:id="fieldSalary" layoutX="66.0" layoutY="366.0" prefHeight="25.0" prefWidth="296.0" />
+   </children>
+</AnchorPane>
