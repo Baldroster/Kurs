@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="423.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ExecutionCode.Controllers.RoomInsertController">
+   <children>
+      <Button fx:id="backButton" layoutX="38.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#clickBackButton" prefHeight="25.0" prefWidth="74.0" text="Назад" />
+      <Button fx:id="saveButton" layoutX="323.0" layoutY="342.0" mnemonicParsing="false" onMouseClicked="#clickSaveButton" text="Сохранить" />
+      <Label alignment="CENTER" layoutX="156.0" layoutY="38.0" prefHeight="17.0" prefWidth="92.0" text="Номер комнаты" />
+      <TextField fx:id="fieldRoomId" layoutX="64.0" layoutY="70.0" prefHeight="25.0" prefWidth="296.0" />
+      <Label alignment="CENTER" layoutX="187.0" layoutY="114.0" prefHeight="17.0" prefWidth="31.0" text="Цена" />
+      <TextField fx:id="fieldRoomPrice" layoutX="64.0" layoutY="147.0" prefHeight="25.0" prefWidth="296.0" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="201.0" prefHeight="17.0" prefWidth="83.0" text="Комментарий" />
+      <TextField fx:id="fieldRoomCommentary" layoutX="64.0" layoutY="230.0" prefHeight="25.0" prefWidth="296.0" />
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="67.0" layoutY="292.0" prefHeight="41.0" prefWidth="296.0" text="Error" textFill="RED" visible="false" />
+   </children>
+</AnchorPane>
