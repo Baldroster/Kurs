@@ -1,12 +1,16 @@
 package ExecutionCode.BaseObjects;
 
 public class User {
-    private String id = "";
-    private String log = "";
-    private String pass = "";
+    private String id ;
+    private String log;
+    private String pass;
 
 
-
+public User(){
+    id ="";
+    log ="";
+    pass ="";
+}
     public void setPass(String pass) {
         this.pass = pass;
     }

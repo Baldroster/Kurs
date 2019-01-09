@@ -15,7 +15,7 @@ Database database = new Database();
         Database database = new Database();
         database.Initialize();
         database.cleanup();
-        Parent root = FXMLLoader.load(getClass().getResource("../main/resources/Xmls/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../Xmls/login.fxml"));
         primaryStage.setTitle("Окно Log-in");
         primaryStage.setScene(new Scene(root, 568, 400));
         primaryStage.show();

@@ -62,19 +62,19 @@ public class Database {
                 stmt.executeUpdate(sql);
 
                 sql = "CREATE TABLE    ROOM" +
-                        "(id_room INTEGER not NULL, " +
-                        " price INTEGER(10), " +
+                        "(id_room VARCHAR not NULL, " +
+                        " price VARCHAR(255), " +
                         " commentary_room VARCHAR(255), " +
                         " PRIMARY KEY ( id_room ))";
                 stmt.executeUpdate(sql);
 
                 sql = "CREATE TABLE   GUEST " +
                         "(id_guest INTEGER auto_increment, " +
-                        " id_room INTEGER not NULL, " +
+                        " id_room VARCHAR not NULL, " +
                         " first VARCHAR(255), " +
                         " last VARCHAR(255), " +
                         " father VARCHAR(255), " +
-                        " age INTEGER, " +
+                        " age VARCHAR(2), " +
                         " phone VARCHAR(10), " +
                         " passport VARCHAR(10), " +
                         " commentary_guest VARCHAR(255), " +
@@ -83,11 +83,11 @@ public class Database {
 
                 sql = "CREATE TABLE   WORKER" +
                         "(id_worker INTEGER auto_increment, " +
-                        " id_room INTEGER not NULL, " +
+                        " id_room VARCHAR not NULL, " +
                         " first VARCHAR(255), " +
                         " last VARCHAR(255), " +
                         " father VARCHAR(255), " +
-                        " age INTEGER, " +
+                        " age VARCHAR(2), " +
                         " phone_guest VARCHAR(10), " +
                         " passport VARCHAR(10), " +
                         " salary VARCHAR(255), " +
@@ -97,10 +97,10 @@ public class Database {
                 sql = "INSERT into ROOM values (0, '101', 'Test');";
                 stmt.executeUpdate(sql);
 
-                sql = "INSERT into GUEST values (0, 0, 'Test' , 'Test' , 'Test' , 'Test' , 0 , 'Test' , 'Test' , 'Test');";
+                sql = "INSERT into GUEST values (0, '0', 'Test' , 'Test' , 'Test' , '0' , 'Test' , 'Test' , 'Test');";
                 stmt.executeUpdate(sql);
 
-                sql = "INSERT into WORKER values (0, 0, 'Test' , 'Test' , 'Test' , 'Test' , 0 , 'Test' , 'Test' , 'Test');";
+                sql = "INSERT into WORKER values (0, '0', 'Test' , 'Test' , 'Test' , '0' , 'Test' , 'Test' , 'Test');";
                 stmt.executeUpdate(sql);
 
                 sql = "INSERT into USERS values (1, 'log', 'pass');";

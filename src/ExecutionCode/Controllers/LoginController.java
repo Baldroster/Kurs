@@ -28,10 +28,7 @@ public class LoginController {
     @FXML
     private Label exeptionLabel;
     @FXML
-   
 
-    private  String password ="pass";
-    private  String login ="log";
     private User user = new User();
     @FXML
     private void clickButtonLogin() throws IOException, SQLException {
@@ -39,13 +36,7 @@ public class LoginController {
         user.setPass(fieldPassword.getCharacters().toString());
         if (SqlQuery.getUsers(user)){
 
-            Stage stage = (Stage) fieldLogin.getScene().getWindow();
-            stage.close();
-            Parent root = FXMLLoader.load(getClass().getResource("/Xmls/MainForm.fxml"));
-            stage = new Stage();
-            stage.setTitle("Главное Окно");
-            stage.setScene(new Scene(root, 380, 400));
-            stage.show();
+            returnToMainWindow();
         }
         else {
             fieldLogin.setText("");
@@ -60,5 +51,15 @@ public class LoginController {
     private void clickButtonQuit() {
         Stage stage = (Stage) buttonQuit.getScene().getWindow();
         stage.close();
+    }
+
+    private  void returnToMainWindow() throws IOException {
+        Stage stage = (Stage) fieldLogin.getScene().getWindow();
+        stage.close();
+        Parent root = FXMLLoader.load(getClass().getResource("/Xmls/MainForm.fxml"));
+        stage = new Stage();
+        stage.setTitle("Главное Окно");
+        stage.setScene(new Scene(root, 380, 400));
+        stage.show();
     }
 }
